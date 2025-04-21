@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crimzn Crypto Consult</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #111; color: #fff; padding: 20px; }
+    h1, h2 { color: #f7931a; }
+    .card { background-color: #222; padding: 20px; border-radius: 10px; margin-top: 30px; box-shadow: 0 0 10px #000; }
+    .btn { padding: 10px 15px; background-color: #f7931a; color: #fff; border: none; border-radius: 5px; cursor: pointer; display: block; margin: 10px auto; }
+    #chat-form { display: flex; gap: 10px; margin-top: 20px; }
+    #user-input { flex: 1; padding: 8px; border: none; border-radius: 4px; }
+    #chat-response { margin-top: 20px; background: #222; padding: 15px; border-radius: 5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>> Welcome to the edge of finance.</h1>
+  <p>> Crimzn offers high-signal crypto consulting for those who live beyond the banks.</p>
+  <p>> Bitcoin. Security. DeFi. Sovereignty. Let's build your future.</p>
+
+  <div class="card">
+    <h2>Crimzn's Crypto Consulting</h2>
+    <p><strong>Rate:</strong> 9.99/hr</p>
+    <ul>
+      <li>Portfolio Reviews</li>
+      <li>Wallet Setup & Security</li>
+      <li>DeFi & Yield Strategies</li>
+      <li>Market Outlooks</li>
+    </ul>
+    <button class="btn" onclick="window.open('https://commerce.coinbase.com/checkout/0193a8a5-c86f-407d-b5d7-6f89664fbdf8', '_blank')">Book Now</button>
+    <button class="btn" onclick="window.open('https://twitter.com/messages/compose?recipient_id=your_id', '_blank')">Message Me on X</button>
+  </div>
+
+  <div class="card">
+    <h2>Talk to CrimznBot</h2>
+    <form id="chat-form">
+      <input type="text" id="user-input" placeholder="Ask anything..." required />
+      <button type="submit" class="btn">Send</button>
+    </form>
+    <div id="chat-response"></div>
+  </div>
+
+  <script>
+    document.getElementById("chat-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const input = document.getElementById("user-input").value;
+      const responseDiv = document.getElementById("chat-response");
+      responseDiv.innerHTML = "<p>Loading...</p>";
+      try {
+        const res = await fetch("https://crimznbot.onrender.com/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: input })
+        });
+        const data = await res.json();
+        responseDiv.innerHTML = `<p>${data.response || "No response from bot."}</p>`;
+      } catch (err) {
+        responseDiv.innerHTML = `<p style='color:red;'>Error: ${err.message}</p>`;
+      }
+    });
+  </script>
+</body>
+</html>
