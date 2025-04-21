@@ -1,6 +1,7 @@
 {
   "name": "crimznbot",
   "version": "1.0.0",
+  "description": "CrimznBot backend for OpenAI chat",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
