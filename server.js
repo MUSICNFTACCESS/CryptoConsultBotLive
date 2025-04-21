@@ -6,7 +6,7 @@ const axios = require("axios");
 const app = express();
 const PORT = process.env.PORT || 3000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-console.log("OPENAI_API_KEY detected:", !!OPENAI_API_KEY);
+
 console.log("OPENAI_API_KEY detected:", !!OPENAI_API_KEY);
 
 app.use(cors());
@@ -29,7 +29,7 @@ app.post("/chat", async (req, res) => {
     const reply = response.data.choices[0].message.content;
     res.json({ response: reply });
   } catch (error) {
-    console.error("Error from OpenAI:", error?.response?.data || error.message);
+    console.error("OpenAI Error:", error?.response?.data || error.message);
     res.json({ response: "Sorry, something went wrong on my end." });
   }
 });
