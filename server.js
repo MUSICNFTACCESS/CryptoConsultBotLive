@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 console.log("OPENAI_API_KEY detected:", !!OPENAI_API_KEY);
+console.log("OPENAI_API_KEY detected:", !!OPENAI_API_KEY);
 
 app.use(cors());
 app.use(bodyParser.json());
