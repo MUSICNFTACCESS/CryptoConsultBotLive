@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CrimznBot</title>
+  <style>
+    body {
+      background: #111; color: #fff; font-family: Arial, sans-serif; padding: 20px;
+    }
+    h1 { color: #f7931a; }
+    #chat-box { background: #222; padding: 15px; border-radius: 8px; margin-top: 20px; white-space: pre-wrap; }
+    input, button { padding: 10px; margin-top: 10px; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Talk to CrimznBot</h1>
+  <input id="msg" placeholder="Ask me anything..." size="40" />
+  <button onclick="send()">Send</button>
+  <div id="chat-box"></div>
+  <script>
+    async function send() {
+      const input = document.getElementById("msg");
+      const chat = document.getElementById("chat-box");
+      const res = await fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: input.value })
+      });
+      const data = await res.json();
+      chat.innerText = data.response;
+    }
+  </script>
+</body>
+</html>

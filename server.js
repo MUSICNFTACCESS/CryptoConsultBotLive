@@ -10,6 +10,7 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 console.log("OPENAI_API_KEY detected:", !!OPENAI_API_KEY);
 
 app.use(cors());
+app.use(express.static('public'));
 app.use(bodyParser.json());
 
 app.post("/chat", async (req, res) => {
