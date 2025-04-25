@@ -1,10 +1,1 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const app = express();
-app.use(cors());
-app.use(express.static(__dirname));
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log('CrimznBot is online'));
+const express = require('express');\nconst path = require('path');\nconst cors = require('cors');\nconst app = express();\n\napp.use(cors());\napp.use(express.static(path.join(__dirname)));\n\napp.get('/', (req, res) => {\n  res.sendFile(path.join(__dirname, 'index.html'));\n});\n\napp.get('*', (req, res) => {\n  res.sendFile(path.join(__dirname, 'index.html'));\n});\n\nconst PORT = process.env.PORT || 3000;\napp.listen(PORT, () => console.log('CrimznBot is online'));
