@@ -1,1 +1,36 @@
-404: Not Found
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  margin: 0;
+}
+
+h1, h2 {
+  color: #f7931a;
+}
+
+.card {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px #000;
+}
+
+.btn {
+  padding: 10px 15px;
+  background-color: #f7931a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#chat-response {
+  margin-top: 20px;
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+}404: Not Found
